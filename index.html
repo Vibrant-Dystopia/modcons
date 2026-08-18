@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Modern Conveniences in Pop Culture (1945–1955)</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- ROOT VARIABLES ---------- */
+        :root{
+            --neon-teal:#3FE0C2;
+            --neon-red:#FF4F4F;
+            --neon-yellow:#FFD966;
+            --neon-blue:#4FC3FF;
+
+            --bg:#000;
+            --text:#E0E0E0;
+            --box-bg:#0d0d0d;
+        }
+
+        /* LIGHT MODE VARIABLES */
+        .light-mode{
+            --bg:#FFF7E2;
+            --text:#2A2A2A;
+            --box-bg:#FFF0D0;
+
+            --neon-teal:#2BBFA8;
+            --neon-red:#E94B4B;
+            --neon-yellow:#F5C84A;
+            --neon-blue:#5AB8FF;
+        }
+
+        /* ---------- BASE LAYOUT ---------- */
+        html,body{height:100%}
+        body{
+            font-family:'Montserrat',Arial,sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            margin:0;
+            padding:40px 20px;
+            display:flex;
+            justify-content:center;
+            transition:background .4s ease,color .4s ease;
+            position:relative;
+            overflow-x:hidden;
+        }
+
+        .container{
+            max-width:780px;
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            gap:32px;
+            animation:fadePage 1.2s ease;
+            z-index:1;
+        }
+
+        @keyframes fadePage{from{opacity:0}to{opacity:1}}
+
+        /* ---------- SITE-WIDE NEON SCANLINES (non-blocking) ---------- */
+        body::before{
+            content:"";
+            position:fixed;
+            inset:0;
+            pointer-events:none; /* never block clicks */
+            background:repeating-linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.03) 0px,
+                rgba(255,255,255,0.03) 2px,
+                transparent 4px
+            );
+            animation:scanlines 6s linear infinite;
+            opacity:.25;
+            z-index:0;
+        }
+        @keyframes scanlines{0%{transform:translateY(0)}100%{transform:translateY(10px)}}
+
+        /* ---------- TOGGLE (1950s neon upgrade) ---------- */
+        .toggle-wrapper{display:flex;justify-content:flex-end;margin-bottom:-10px;z-index:2}
+        .toggle{
+            width:80px;height:40px;background:#222;border-radius:50px;position:relative;cursor:pointer;
+            border:2px solid var(--neon-teal);box-shadow:0 0 12px var(--neon-teal);
+            transition:background .3s ease,box-shadow .3s ease;
+            display:inline-block;
+        }
+        .toggle::before{
+            content:"";position:absolute;width:32px;height:32px;border-radius:50%;
+            top:3px;left:4px;background:var(--neon-yellow);
+            transition:transform .28s cubic-bezier(.2,.9,.2,1),background .28s,box-shadow .28s;
+            box-shadow:0 0 10px var(--neon-yellow);
+        }
+        .light-mode .toggle{background:#ddd;border-color:var(--neon-red);box-shadow:0 0 12px var(--neon-red)}
+        .light-mode .toggle::before{transform:translateX(38px);background:var(--neon-red);box-shadow:0 0 10px var(--neon-red)}
+        .toggle::after{
+            content:"✦";position:absolute;right:-22px;top:8px;font-size:22px;color:var(--neon-teal);
+            text-shadow:0 0 10px var(--neon-teal);transition:color .3s,text-shadow .3s;
+        }
+        .light-mode .toggle::after{color:var(--neon-red);text-shadow:0 0 10px var(--neon-red)}
+
+        /* ---------- TITLES ---------- */
+        @keyframes neonFlicker{
+            0%{opacity:.2;text-shadow:none}
+            10%{opacity:1;text-shadow:0 0 12px var(--neon-teal)}
+            18%{opacity:.4}
+            25%{opacity:1}
+            32%{opacity:.7}
+            40%{opacity:1}
+            100%{opacity:1;text-shadow:0 0 12px var(--neon-teal)}
+        }
+        .big-title{font-size:38px;font-weight:700;color:var(--neon-teal);margin:0;line-height:1.2;animation:neonFlicker 2.2s ease-out}
+        @keyframes slide1950s{from{transform:translateX(-20px);opacity:0}to{transform:translateX(0);opacity:1}}
+        .small-title{font-size:22px;font-weight:600;color:var(--neon-red);margin:0;text-shadow:0 0 8px var(--neon-red);animation:slide1950s 1s ease}
+        .creator-names{font-size:13px;color:#A0A0A0;text-transform:uppercase;letter-spacing:1.5px;animation:slide1950s 1.3s ease}
+
+        /* ---------- DIVIDER ---------- */
+        @keyframes popIn{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+        .divider{height:3px;background:linear-gradient(to right,var(--neon-red),var(--neon-teal),var(--neon-blue));border-radius:3px;margin:25px 0;animation:popIn .8s ease-out;transform-origin:left}
+
+        /* ---------- MAIN TEXT ---------- */
+        .main-text{font-size:17px;line-height:1.7}
+
+        /* ---------- HEADINGS ---------- */
+        @keyframes atomicSlide{from{transform:translateX(15px);opacity:0}to{transform:translateX(0);opacity:1}}
+        .heading-item{color:var(--neon-teal);font-weight:700;font-size:19px;margin-top:25px;display:block;cursor:pointer;padding:10px 0;transition:color .2s,text-shadow .2s;animation:atomicSlide .6s ease}
+        @keyframes neonPulse{0%{text-shadow:0 0 0px var(--neon-red)}50%{text-shadow:0 0 12px var(--neon-red)}100%{text-shadow:0 0 0px var(--neon-red)}}
+        .heading-item:hover{color:var(--neon-red);animation:neonPulse .6s ease}
+        .heading-item.active{color:var(--neon-red);text-shadow:0 0 10px var(--neon-red)}
+
+        /* ---------- SECTION CONTENT ---------- */
+        .section-content{margin-top:10px;display:none;padding-left:10px;border-left:2px solid #333;animation:fadeIn .3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+        /* ---------- FACT BOX ---------- */
+        .fact-box{background-color:var(--box-bg);border-left:4px solid var(--neon-red);padding:18px;border-radius:6px;margin-top:25px;box-shadow:0 0 10px rgba(255,79,79,.4);animation:fadeIn .8s ease}
+        .fact-title{color:var(--neon-red);font-weight:700;margin-bottom:8px;font-size:18px;text-shadow:0 0 6px var(--neon-red)}
+
+        /* ---------- TIMELINE ---------- */
+        @keyframes atomicPulse{0%{box-shadow:0 0 6px var(--neon-teal)}50%{box-shadow:0 0 12px var(--neon-yellow)}100%{box-shadow:0 0 6px var(--neon-teal)}}
+        .timeline{border-left:2px solid #333;padding-left:20px;margin-top:20px}
+        .timeline-item{margin-bottom:18px;position:relative;padding-left:5px;transition:transform .2s,color .2s}
+        .timeline-item::before{content:'';position:absolute;left:-26px;top:6px;width:12px;height:12px;background-color:var(--neon-teal);border-radius:50%;animation:atomicPulse 2s infinite ease-in-out}
+        .timeline-item:hover{color:var(--neon-teal);transform:translateX(4px)}
+        .timeline-item:hover::before{background-color:var(--neon-red)}
+        .timeline-year{color:var(--neon-teal);font-weight:700;font-size:18px;text-shadow:0 0 6px var(--neon-teal)}
+
+        /* ---------- NORMAL NAME ---------- */
+        .end-text{font-size:18px;font-weight:600;color:var(--neon-red);border-top:2px solid #333;padding-top:20px;margin-top:20px;text-align:center;text-shadow:0 0 6px var(--neon-red);animation:fadeIn 1.2s ease}
+
+        /* ---------- COOKIE POPUP (non-blocking) ---------- */
+        .cookie-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #111;
+            border: 2px solid var(--neon-teal);
+            padding: 18px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 12px var(--neon-teal);
+            color: var(--text);
+            font-size: 15px;
+            z-index: 9999;
+            pointer-events: auto; /* allow interaction */
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            opacity:1;
+            transition:opacity .35s ease,transform .35s ease;
+        }
+
+        .cookie-popup.hidden { opacity:0; transform: translateY(12px); pointer-events:none; }
+
+        .cookie-popup h3{margin:0 0 6px 0;color:var(--neon-teal);text-shadow:0 0 6px var(--neon-teal);font-size:18px}
+        .cookie-popup p{margin:0;color:var(--text);font-size:14px;line-height:1.3}
+
+        .cookie-buttons{display:flex;gap:10px;margin-top:6px}
+        .cookie-buttons button{
+            flex:1;padding:8px;background:var(--neon-red);border:none;color:#fff;cursor:pointer;border-radius:6px;box-shadow:0 0 6px var(--neon-red);transition:opacity .18s;
+        }
+        .cookie-buttons button.secondary{background:transparent;border:2px solid var(--neon-teal);color:var(--text);box-shadow:none}
+        .cookie-buttons button:hover{opacity:.8}
+
+        /* small responsive tweak */
+        @media (max-width:420px){
+            .cookie-popup{right:12px;left:12px;width:auto}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- LIGHT/DARK TOGGLE -->
+        <div class="toggle-wrapper">
+            <div class="toggle" id="modeToggle" role="button" aria-label="Toggle light and dark mode" tabindex="0"></div>
+        </div>
+
+        <h1 class="big-title">Modern Conveniences in Pop Culture from the Decade Immediately After WWII</h1>
+        <h2 class="small-title">Yes, we actually made a website.</h2>
+        <div class="creator-names">By Oak, Vavara, Jasper, and Kelsey</div>
+
+        <div class="divider"></div>
+
+        <div class="main-text">
+            Modern conveniences in pop culture are things that have been popular in culture and are relevant to a gain in convenience. We are talking about things that were specifically popular in 1945–1955.
+
+            <span class="heading-item" data-target="section-appliances">ELECTRICAL APPLIANCES</span>
+            <div id="section-appliances" class="section-content">
+                Post WW2, electrical appliances became extremely popular. Things like cooking, doing laundry, hygiene, vacuum cleaners and much more were revolutionised. Labour-saving devices helped people do things faster around their house and keep everything simple.
+            </div>
+
+            <span class="heading-item" data-target="section-kitchen">KITCHEN APPLIANCES</span>
+            <div id="section-kitchen" class="section-content">
+                Kitchen appliances were small to emphasise practical use of space, as well as the war’s housing constraints. Electrical appliances were limited, with simple refrigerators, gas or coal stoves, and sinks.
+            </div>
+
+            <span class="heading-item" data-target="section-hygiene">HYGIENE</span>
+            <div id="section-hygiene" class="section-content">
+                Laundry machines and dryers became super popular because they made washing clothes and bedding easier, which allowed people to do it more often.
+            </div>
+
+            <span class="heading-item" data-target="section-electronics">ELECTRONIC DEVICES</span>
+            <div id="section-electronics" class="section-content">
+                Companies broadcasted many things on radios, which were extremely popular. Television sets were already being sold.
+            </div>
+
+            <span class="heading-item" data-target="section-pens">BALLPOINT PENS</span>
+            <div id="section-pens" class="section-content">
+                Ballpoint pens were invented in 1888, the modern version patented in 1938, but they only gained popularity in the late 1940s and early 1950s. This new pen that didn’t have to be dipped in ink quickly replaced steel-nibbed pens.
+            </div>
+
+            <div class="fact-box">
+                <div class="fact-title">FUN FACT</div>
+                When Gimbels department store in New York first sold ballpoint pens in 1945, they cost $12.50 each - over $180 today. They sold 10,000 pens on the first day.
+            </div>
+
+            <span class="heading-item" data-target="section-timeline">POST‑WAR TIMELINE (1945–1955)</span>
+            <div id="section-timeline" class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">1945</span> — WWII ends. Consumer factories stop making military gear and start building household appliances.
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1947</span> — Mass production of home appliances begins to skyrocket across suburbs.
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1950</span> — Television sets become the ultimate must-have electronic item in living rooms.
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1953</span> — Ballpoint pens officially take over schools and offices, replacing fountain pens.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="end-text">
+            Website design by Oak T.R. de Cann.
+        </div>
+    </div>
+
+    <!-- COOKIE POPUP -->
+    <div class="cookie-popup" id="cookiePopup" role="dialog" aria-live="polite" aria-label="Cookie consent">
+        <h3>We Use Cookies</h3>
+        <p>We use cookies to improve your browsing experience on this site. Choose an option below.</p>
+        <div class="cookie-buttons">
+            <button id="acceptBtn">Accept</button>
+            <button id="declineBtn" class="secondary">Decline</button>
+        </div>
+    </div>
+
+    <script>
+        // ---------- SECTION TOGGLE ----------
+        document.addEventListener('DOMContentLoaded', function () {
+            // Section expand/collapse
+            document.querySelectorAll('.heading-item').forEach(function (heading) {
+                heading.addEventListener('click', function () {
+                    const targetId = heading.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+
+                    const isActive = heading.classList.contains('active');
+                    document.querySelectorAll('.heading-item').forEach(h => h.classList.remove('active'));
+                    document.querySelectorAll('.section-content').forEach(c => c.style.display = 'none');
+
+                    if (!isActive) {
+                        heading.classList.add('active');
+                        content.style.display = 'block';
+                    }
+                });
+            });
+
+            // Toggle keyboard accessibility
+            const toggleEl = document.getElementById('modeToggle');
+            toggleEl.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleEl.click();
+                }
+            });
+
+            // Light/Dark toggle
+            toggleEl.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                // store preference
+                try { localStorage.setItem('siteTheme', document.body.classList.contains('light-mode') ? 'light' : 'dark'); } catch(e){}
+            });
+
+            // restore theme if set
+            try {
+                const saved = localStorage.getItem('siteTheme');
+                if (saved === 'light') document.body.classList.add('light-mode');
+            } catch(e){}
+
+            // Cookie popup logic
+            const cookiePopup = document.getElementById('cookiePopup');
+            const acceptBtn = document.getElementById('acceptBtn');
+            const declineBtn = document.getElementById('declineBtn');
+
+            function hidePopup(choice){
+                // fade out then remove pointer events
+                cookiePopup.classList.add('hidden');
+                // store choice so it doesn't reappear
+                try { localStorage.setItem('cookieChoice', choice); } catch(e){}
+                // remove from DOM after animation
+                setTimeout(() => {
+                    if (cookiePopup && cookiePopup.parentNode) cookiePopup.parentNode.removeChild(cookiePopup);
+                }, 420);
+            }
+
+            // Attach handlers
+            acceptBtn.addEventListener('click', function(){ hidePopup('accepted'); });
+            declineBtn.addEventListener('click', function(){ hidePopup('declined'); });
+
+            // If user already chose, don't show popup
+            try {
+                const prev = localStorage.getItem('cookieChoice');
+                if (prev) {
+                    // remove immediately
+                    cookiePopup.parentNode.removeChild(cookiePopup);
+                }
+            } catch(e){
+                // ignore storage errors; leave popup visible
+            }
+        });
+    </script>
+</body>
+</html>
