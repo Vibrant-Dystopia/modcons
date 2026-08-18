@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes, we really did it.</title>
+    
+    <link href="https://googleapis.com" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: #000000; 
+            color: #E0E0E0;            
+            margin: 40px auto;
+            max-width: 600px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .big-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: #00FFCC; 
+        }
+        .small-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #FF007F; 
+            margin: 0;
+        }
+        .creator-names {
+            font-size: 14px;
+            color: #A0A0A0; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .main-text {
+            font-size: 16px;
+            color: #E0E0E0; 
+        }
+        .heading-item {
+            color: #00FFCC; 
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* 💡 NEW STYLE: Fun Fact Box */
+        .fact-box {
+            background-color: #0d0d0d;
+            border-left: 4px solid #FF007F;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+        .fact-title {
+            color: #FF007F;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* ⏳ NEW STYLE: Timeline */
+        .timeline {
+            border-left: 2px solid #333;
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+        .timeline-item {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: #00FFCC;
+            border-radius: 50%;
+        }
+        .timeline-year {
+            color: #00FFCC;
+            font-weight: 700;
+        }
+
+        .end-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #FF007F; 
+            border-top: 2px solid #333333; 
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    
+        <h1 class="big-title">Modern Conveniences in Pop Culture from the decade immediately after WWII</h1>
+        <h2 class="small-title">Yes, we actually made a website.</h2>
+        <div class="creator-names">By Oak, Vavara, Jasper and Kelsie</div>
+
+        <div class="main-text">
+            Modern conveniences in pop culture are things that have been popular in culture and are relevant to a gain in convenience. We are talking about things that were specifically popular in 1945-1955.<br><br>
+            
+            <span class="heading-item">ELECTRICAL APPLIANCES,</span><br>
+            Post WW2, electrical appliances became extremely popular. Things like cooking, doing laundry, hygiene, vacuum cleaners and much more things were revolutionised. Labour saving devices helped people do things faster around their house and keep everything simple. <br><br>
+            
+            <span class="heading-item">KITCHEN APPLIANCES,</span><br>
+            Kitchen appliances were small, to emphasise practical use of space, as well as the wars housing constraints. electrical appliances were limited, with like simple refridgerators, gas or coal stoves, and sinks.<br><br>
+            
+            <span class="heading-item">HYGIENE,</span><br>
+            Laundry machines and dryers became super popular because it made washing clothes and bedding easier, which allowed people to do it more often.<br><br>
+            
+            <span class="heading-item">ELECTRONIC DEVICES,</span><br>
+            Companies broadcasted many things on radios, which were super popular. Television sets were already being sold.<br><br>
+
+            <span class="heading-item">BALLPOINT PENS,</span><br>
+            Ballpoint Pens were invented in 1888, the modern version of which was first patented in 1938, but they only gained popularity in the late 1940s and the early 1950s. This new pen that didnt have to be dipped in ink completely crashed the market for steel nibbed pens very quickly.
+
+            <!-- 💡 New Feature: Fun Fact Box -->
+            <div class="fact-box">
+                <div class="fact-title">💡 FUN FACT</div>
+                When Gimbels,a department store in New York, first sold ballpoint pens in 1945, they cost $12.50 each. This would be over $180 today. They also sold 10,000 pens on the first day.
+            </div>
+
+            <!-- ⏳ New Feature: Timeline Section -->
+            <br><br><span class="heading-item">POST WAR DECADE TIMELINE (1945-1955)</span><br>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">1945</span> - WWII ends. Consumer factories stop making military gear and start building household appliances.
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1947</span> - Mass production of home appliances begins to appear across suburbs.
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1950</span> - Television sets start to appear in living rooms.
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1953</span> - Ballpoint pens become most common pen type in schools and offices, replacing fountain pens.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="end-text">
+            Website design by Oak T.R. de Cann. Thanks for reading. :)
+        </div>
+
+    </div>
+
+</body>
+</html>
